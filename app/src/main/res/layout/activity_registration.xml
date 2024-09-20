@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_centerInParent="true"
+    android:background="@drawable/bg6"
+    tools:context=".RegistrationActivity">
+
+    <ImageView
+        android:id="@+id/ivLoginLogo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo1"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/ivLoginLogo"
+        android:backgroundTint="#008BF0CE"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/tvRegisterText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cantata_one"
+                android:text="Sign Up Here"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
+            <EditText
+                android:id="@+id/etRegisterName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/adamina"
+                android:inputType="textEmailAddress"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"/>
+            <EditText
+                android:id="@+id/etRegisterMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile number"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/adamina"
+                android:inputType="number"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"/>
+
+            <EditText
+                android:id="@+id/etRegisterEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Id"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/adamina"
+                android:inputType="textEmailAddress"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"/>
+
+            <EditText
+                android:id="@+id/etRegisterUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User Name"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/adamina"
+                android:inputType="textPersonName"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"/>
+            <EditText
+                android:id="@+id/etRegisterPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/adamina"
+                android:inputType="textPassword"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"/>
+            <CheckBox
+                android:id="@+id/cbRegisterShow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show Password"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/adamina"
+                android:textStyle="bold"
+                android:checked="false"
+                android:paddingLeft="10dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:text="Sign Up"
+                android:textSize="27sp"
+                android:fontFamily="@font/adamina"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_shape"
+                android:textStyle="bold"/>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

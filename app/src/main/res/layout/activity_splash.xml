@@ -42,18 +42,7 @@
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold" />
-    <TextView
-        android:id="@+id/tvSplashSubTitle1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvSplashSubTitle"
-        android:layout_marginTop="65dp"
-        android:fontFamily="@font/adamina"
-        android:text="Your Health, Our Care!!"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+
 
 
 </RelativeLayout>

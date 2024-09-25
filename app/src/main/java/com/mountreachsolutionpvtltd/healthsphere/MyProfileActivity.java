@@ -129,7 +129,7 @@ public class MyProfileActivity extends  AppCompatActivity {
                         tvUsername.setText(strUsername);
 
                         Glide.with(MyProfileActivity.this)
-                                .load("http://192.168.152.74:80/UserAPI/images/"+strImage)
+                                .load("http://192.168.2.74:80/UserAPI/images/"+strImage)
                                 .diskCacheStrategy(DiskCacheStrategy.NONE) // Disable disk caching
                                 .skipMemoryCache(true)// Disable memory caching
                                 .placeholder(R.drawable.icon_home_account_)

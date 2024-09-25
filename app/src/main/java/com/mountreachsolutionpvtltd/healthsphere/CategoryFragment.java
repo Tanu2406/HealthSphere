@@ -7,58 +7,89 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CategoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CategoryFragment extends Fragment {
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+import java.util.ArrayList;
+import java.util.List;
 
-    public CategoryFragment() {
-        // Required empty public constructor
-    }
+import cz.msebera.android.httpclient.Header;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CategoryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CategoryFragment newInstance(String param1, String param2) {
-        CategoryFragment fragment = new CategoryFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public class CategoryFragment extends Fragment {
+       ListView lvShowAllCategory;
+       TextView tvNoCategoryAvailable;
+
+       List<POGOGetAllCategoryDetails> pogoGetAllCategoryDetails;//POGOGetAllCategoryDetails resultant class of list
+        AdapterGetAllCategoryDetails adapterGetAllCategoryDetails;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false);
+        View view =  inflater.inflate(R.layout.fragment_category, container, false);
+
+        pogoGetAllCategoryDetails = new ArrayList<>();
+
+        lvShowAllCategory = view.findViewById(R.id.lvCategoryFragmentShowMultipleCategory);
+        tvNoCategoryAvailable = view.findViewById(R.id.tvCategoryFragmentNoCategoryAvailable);
+
+        getAllCategory();
+
+        return  view;//view store xml file and design
     }
-}
+
+        private void getAllCategory() {
+        //classname objname = new constructorname();
+            AsyncHttpClient client = new AsyncHttpClient();//Client-Server Communication means passing over the network
+            RequestParams params = new RequestParams();//put the data Asynchttpclient
+
+            client.post(Urls.getAllCategoryDetailsWebService,params,new JsonHttpResponseHandler(){
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    super.onSuccess(statusCode, headers, response);
+
+                    try {
+                        JSONArray jsonArray = response.getJSONArray("getAllCategory");
+                        if (jsonArray.isNull(0)) {
+                            tvNoCategoryAvailable.setVisibility(View.VISIBLE);
+                        }
+                        for(int i=0;i<jsonArray.length();i++)
+                        {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            String strId = jsonObject.getString("id");
+                            String strCategoryImage = jsonObject.getString("categoryimage");
+                            String strCategoryName = jsonObject.getString("categoryname");
+
+                            pogoGetAllCategoryDetails.add(new POGOGetAllCategoryDetails(strId,strCategoryImage,strCategoryName));
+
+                        }
+                        adapterGetAllCategoryDetails = new AdapterGetAllCategoryDetails(pogoGetAllCategoryDetails,getActivity());
+
+                        lvShowAllCategory.setAdapter(adapterGetAllCategoryDetails);
+
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                    super.onFailure(statusCode, headers, throwable, errorResponse);
+                    Toast.makeText(getActivity(), "Server Error", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+    //Activity call = use Activityname.this
+    //Fragment call = use getActivity
+    //same time of multiple data load by list view

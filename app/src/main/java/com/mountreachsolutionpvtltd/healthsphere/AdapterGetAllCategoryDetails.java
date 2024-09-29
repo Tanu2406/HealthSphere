@@ -1,12 +1,15 @@
 package com.mountreachsolutionpvtltd.healthsphere;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -53,6 +56,7 @@ public class AdapterGetAllCategoryDetails extends BaseAdapter {
             view = inflater.inflate(R.layout.lv_get_all_category,null);
             holder.ivCategoryImage  = view.findViewById(R.id.ivLvCategoryImage);
             holder.tvCategoryName = view.findViewById(R.id.tvCategoryName);
+            holder.cvCategoryList = view.findViewById(R.id.cvCtegoryList);
 
             view.setTag(holder);
 
@@ -72,6 +76,15 @@ public class AdapterGetAllCategoryDetails extends BaseAdapter {
                 .error(R.drawable.icon_profile_photo)
                 .into(holder.ivCategoryImage);
 
+        holder.cvCategoryList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(activity, CtegoryWiseProductActivity.class);
+                i.putExtra("categoryname",obj.getCategoryName());
+                activity.startActivity(i);
+            }
+        });
+
 
         //LayoutInflater call or store xml file
         //final keyword=>support nonchangeble
@@ -83,6 +96,7 @@ public class AdapterGetAllCategoryDetails extends BaseAdapter {
     {
         ImageView ivCategoryImage;
         TextView tvCategoryName;
+        CardView cvCategoryList;
     }
 
 

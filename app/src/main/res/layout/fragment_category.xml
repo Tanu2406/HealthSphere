@@ -3,8 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CategoryFragment"
     android:orientation="vertical">
+
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/svCategoryFragmentSearchCategory"
+        app:queryHint="Search By Category"
+        app:iconifiedByDefault="false"
+        android:layout_margin="16sp"
+        android:padding="8sp"
+        android:background="@drawable/et_bg_shape"
+        />
+
 
    <ListView
        android:layout_width="match_parent"

@@ -7,5 +7,9 @@ public class Urls {
     public static String forgetPasswordWebServices = webServiseAddress + "forgetPassword.php";
     public static String myDetailsWebService = webServiseAddress + "myDetails.php";
     public static String getAllCategoryDetailsWebService = webServiseAddress + "getAllCategoryDetails.php";
+    public static String CategorywiseProductWebService = webServiseAddress + "categoryWiseProduct.php";
 
+
+    //ctrl+shift+f => find
+    //ctrl+shift+r => replace
 }

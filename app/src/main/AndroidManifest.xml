@@ -16,8 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthSphere"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31"
-       >
+        tools:targetApi="31">
+        <activity
+            android:name=".CtegoryWiseProductActivity"
+            android:exported="false" />
         <activity
             android:name=".MyProfileActivity"
             android:exported="false" />
@@ -40,7 +42,6 @@
         <activity
             android:name=".RegistrationActivity"
             android:exported="false" />
-
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
@@ -55,7 +56,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

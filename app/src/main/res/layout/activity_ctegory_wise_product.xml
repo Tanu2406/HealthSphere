@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CtegoryWiseProductActivity"
+    android:orientation="vertical">
+
+   <androidx.appcompat.widget.SearchView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/svCategorywiseProductSearchProduct"
+       app:queryHint="Search By Category,Store,Product,Product Category"
+       app:iconifiedByDefault="false"
+       android:layout_margin="16sp"
+       android:padding="8sp"
+       android:background="@drawable/et_bg_shape"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvCategorywiseProductListOfProduct"
+        android:layout_margin="16sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCategorywiseProductNoProductAvailable"
+        android:text="No product Available"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/adamina"
+        android:visibility="gone"/>
+
+</LinearLayout>

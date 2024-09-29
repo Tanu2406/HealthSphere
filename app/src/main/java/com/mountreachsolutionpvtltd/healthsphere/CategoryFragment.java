@@ -2,6 +2,7 @@
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -26,6 +27,9 @@ import cz.msebera.android.httpclient.Header;
 
 
     public class CategoryFragment extends Fragment {
+
+        SearchView searchCategory;
+
        ListView lvShowAllCategory;
        TextView tvNoCategoryAvailable;
 
@@ -39,14 +43,50 @@ import cz.msebera.android.httpclient.Header;
         View view =  inflater.inflate(R.layout.fragment_category, container, false);
 
         pogoGetAllCategoryDetails = new ArrayList<>();
-
+        searchCategory = view.findViewById(R.id.svCategoryFragmentSearchCategory);
         lvShowAllCategory = view.findViewById(R.id.lvCategoryFragmentShowMultipleCategory);
         tvNoCategoryAvailable = view.findViewById(R.id.tvCategoryFragmentNoCategoryAvailable);
+
+        //query = user type ex-cake
+        searchCategory.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchCategory(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                searchCategory(query);
+                return false;
+            }
+        });
 
         getAllCategory();
 
         return  view;//view store xml file and design
     }
+
+        private void searchCategory(String query) {
+        List<POGOGetAllCategoryDetails> tempcategory = new ArrayList<>();
+        tempcategory.clear();
+
+        for (POGOGetAllCategoryDetails obj:pogoGetAllCategoryDetails)
+        {
+            if (obj.getCategoryName().toUpperCase().contains(query.toUpperCase())){
+
+                tempcategory.add(obj);
+
+            }else {
+                tvNoCategoryAvailable.setVisibility(View.VISIBLE);
+            }
+
+            adapterGetAllCategoryDetails = new AdapterGetAllCategoryDetails(tempcategory,getActivity());
+            lvShowAllCategory.setAdapter(adapterGetAllCategoryDetails);
+
+        }
+
+        }
 
         private void getAllCategory() {
         //classname objname = new constructorname();

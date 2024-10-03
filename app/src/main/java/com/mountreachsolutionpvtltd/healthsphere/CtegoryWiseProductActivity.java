@@ -51,6 +51,36 @@ public class CtegoryWiseProductActivity extends AppCompatActivity {
         strCategoryname = getIntent().getStringExtra("categoryname");
 
         getCategorywiseProductList();
+
+        searchCategorywiseProduct.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchProductbyCategory(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                searchProductbyCategory(query);
+
+                return false;
+            }
+        });
+    }
+
+    private void searchProductbyCategory(String query) {
+        List<POJOCategorywiseProduct> tempList = new ArrayList<>();
+        tempList.clear();
+
+        for (POJOCategorywiseProduct obj : pojoCategorywiseProducts){
+            if(obj.getCategoryname().toUpperCase().contains(query.toUpperCase()) || obj.getProductname().toUpperCase().contains(query.toUpperCase()) || obj.getMedicalname().toUpperCase().contains(query.toUpperCase()) || obj.getProductprice().toUpperCase().contains(query.toUpperCase()) || obj.getProductcategory().toUpperCase().contains(query.toUpperCase())){
+                tempList.add(obj);
+            }
+        }
+            adapterCategorywiseProduct = new AdapterCategorywiseProduct(tempList,this);
+            lvCategorywiseProduct.setAdapter((adapterCategorywiseProduct));
+
+
     }
 
     private void getCategorywiseProductList() {

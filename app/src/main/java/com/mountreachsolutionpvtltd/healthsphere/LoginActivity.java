@@ -30,6 +30,8 @@ import com.google.android.gms.tasks.Task;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.mountreachsolutionpvtltd.healthsphere.Admin.AdminHomeActivity;
+import com.mountreachsolutionpvtltd.healthsphere.DoctorRole.DoctorLoginActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +40,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class LoginActivity extends AppCompatActivity {
     ImageView ivLoginLogo;
-    TextView tvLoginTitle,tvNewUser,tvForgotPassword;
+    TextView tvLoginTitle,tvNewUser,tvForgotPassword,tvDoctorRole;
     EditText etLoginUser,etLoginPass;
     CheckBox cbLoginShow;
     AppCompatButton btnLoginLogin;
@@ -68,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         tvForgotPassword=findViewById(R.id.tvForgotPassword);
         cbLoginShow=findViewById(R.id.cbLoginShow);
         btnLoginLogin=findViewById(R.id.btnLogin);
+        tvDoctorRole=findViewById(R.id.tvDoctorRole);
         btnSignInWithGoogle=findViewById(R.id.acbtnLoginSigninWithGoogle);
         googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(LoginActivity.this,googleSignInOptions);
@@ -78,6 +81,14 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
 
+        });
+
+        tvDoctorRole.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this, DoctorLoginActivity.class);
+                startActivity(i);
+            }
         });
 
 
@@ -168,12 +179,21 @@ public class LoginActivity extends AppCompatActivity {
                 super.onSuccess(statusCode, headers, response);
                 try {
                     String status = response.getString("success");
-                    if(status.equals("1")){
+                    String strUserrole = response.getString("userrole");
+                    if(status.equals("1") && strUserrole.equals("user")){
                         progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                        editor.putString("username",etLoginUser.getText().toString()).commit();
                         startActivity(i);
-                    }else {
+
+                    } else if (status.equals("1") && strUserrole.equals("admin")) {
+                        progressDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                        startActivity(i);
+
+                    } else {
                         progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, "Invalid Username and Password", Toast.LENGTH_SHORT).show();
                     }

@@ -46,7 +46,7 @@
                 android:text="Login Here"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="35sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -59,7 +59,7 @@
                 android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:paddingLeft="10dp"/>
 
@@ -73,7 +73,7 @@
                 android:inputType="textPassword"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:paddingLeft="10dp"/>
             <TextView
@@ -85,7 +85,7 @@
                 android:fontFamily="@font/adamina"
                 android:text="Forgot Password ?"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textAlignment="textEnd"
                 android:layout_marginRight="5dp"/>
@@ -99,7 +99,7 @@
                 android:fontFamily="@font/adamina"
                 android:text="Show Password"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:paddingLeft="10dp"/>
 
@@ -114,7 +114,7 @@
                 android:fontFamily="@font/adamina"
                 android:text="login"
                 android:textColor="@color/black"
-                android:textSize="27sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
 
@@ -127,7 +127,7 @@
                 android:fontFamily="@font/adamina"
                 android:text="New User Account Create"
                 android:textColor="@color/black"
-                android:textSize="21sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:paddingLeft="10dp"/>
 
@@ -140,10 +140,25 @@
                 android:fontFamily="@font/adamina"
                 android:text="Sign In With Google"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 />
-
+            <TextView
+                android:id="@+id/tvDoctorRole"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/adamina"
+                android:text="Doctor Role"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:background="@drawable/tv_bg_shape"
+                android:padding="8sp"
+                />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

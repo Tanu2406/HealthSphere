@@ -16,5 +16,9 @@
         android:id="@+id/homeMenuMyProfile"
         android:title="My Profile"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/homeMenuLogout"
+        android:title="Logout"
+        app:showAsAction="never"/>
 
 </menu>

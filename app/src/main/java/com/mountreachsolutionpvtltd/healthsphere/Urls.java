@@ -8,6 +8,7 @@ public class Urls {
     public static String myDetailsWebService = webServiseAddress + "myDetails.php";
     public static String getAllCategoryDetailsWebService = webServiseAddress + "getAllCategoryDetails.php";
     public static String CategorywiseProductWebService = webServiseAddress + "categoryWiseProduct.php";
+    public static String UpdateProfileWebService = webServiseAddress + "updateProfile.php";
 
 
     //ctrl+shift+f => find

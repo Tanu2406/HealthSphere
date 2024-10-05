@@ -46,6 +46,8 @@ BottomNavigationView bottomNavigationView;
         } else if (item.getItemId() == R.id.homeMenuMyProfile) {
             Intent i = new Intent(HomeActivity.this,MyProfileActivity.class);
             startActivity(i);
+        } else if (item.getItemId() == R.id.homeMenuLogout) {
+
         }
         return true;
     }

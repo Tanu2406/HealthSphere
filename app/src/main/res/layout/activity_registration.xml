@@ -55,7 +55,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:fontFamily="@font/adamina"
-                android:inputType="textEmailAddress"
+                android:inputType="textPersonName"
                 android:textStyle="bold"
                 android:paddingLeft="10dp"/>
             <EditText

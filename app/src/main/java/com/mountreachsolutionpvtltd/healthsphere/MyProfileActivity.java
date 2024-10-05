@@ -37,7 +37,8 @@ public class MyProfileActivity extends  AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     ImageView ivProfilePhoto;
     TextView tvName,tvMobileNo,tvEmail,tvUsername;
-    AppCompatButton btnEditProfile,btnSignOut;
+    //AppCompatButton btnEditProfile;
+    AppCompatButton btnEditProfile,btnSignOut,btnUpdateProfile;
 
     SharedPreferences preferences;
     
@@ -58,7 +59,11 @@ public class MyProfileActivity extends  AppCompatActivity {
         tvMobileNo=findViewById(R.id.tvMyProfileMobileNo);
         tvEmail=findViewById(R.id.tvMyProfileEmailId);
         tvUsername=findViewById(R.id.tvMyProfileUsername);
+        btnUpdateProfile=findViewById(R.id.acbtnMyProfileUpdateProfile);
         btnSignOut=findViewById(R.id.acbtnMyProfileSignOut);
+
+
+
 
         googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(MyProfileActivity.this,googleSignInOptions);
@@ -68,6 +73,8 @@ public class MyProfileActivity extends  AppCompatActivity {
             String email = googleSignInAccount.getEmail();
             tvName.setText(name);
             tvEmail.setText(email);
+
+
             btnSignOut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -136,6 +143,17 @@ public class MyProfileActivity extends  AppCompatActivity {
                                 .error(R.drawable.icon_profile_photo)
                                 .into(ivProfilePhoto);
 
+                        btnUpdateProfile.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent i = new Intent(MyProfileActivity.this,UpdateProfileActivity.class);
+                                i.putExtra("name",strName);
+                                i.putExtra("mobileno",strMobileno);
+                                i.putExtra("emailid",strEmailid);
+                                i.putExtra("username",strUsername);
+                                startActivity(i);
+                            }
+                        });
                     }
                 } catch (JSONException e) {
                     throw new RuntimeException(e);

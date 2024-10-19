@@ -18,24 +18,24 @@ import java.util.List;
 
 public class AdapterGetAllCategoryDetails extends BaseAdapter {
 
-    List<POGOGetAllCategoryDetails> pogoGetAllCategoryDetails;
+    List<POJOGetAllCategoryDetails> pojoGetAllCategoryDetails;
     Activity activity;//use to call java class itself
 
-    public AdapterGetAllCategoryDetails(List<POGOGetAllCategoryDetails> pogoGetAllCategoryDetails, Activity activity) {
-        this.pogoGetAllCategoryDetails = pogoGetAllCategoryDetails;
+    public AdapterGetAllCategoryDetails(List<POJOGetAllCategoryDetails> pojoGetAllCategoryDetails, Activity activity) {
+        this.pojoGetAllCategoryDetails = pojoGetAllCategoryDetails;
         this.activity = activity;
     }
 
     @Override
     public int getCount() {
         //return size of pojo class
-        return pogoGetAllCategoryDetails.size();
+        return pojoGetAllCategoryDetails.size();
     }
 
     @Override
     public Object getItem(int position) {
         //return postion of pojo class
-        return pogoGetAllCategoryDetails.get(position);
+        return pojoGetAllCategoryDetails.get(position);
     }
 
     @Override
@@ -66,11 +66,11 @@ public class AdapterGetAllCategoryDetails extends BaseAdapter {
             holder =(ViewHolder) view.getTag();
         }
 
-        final POGOGetAllCategoryDetails obj = pogoGetAllCategoryDetails.get(position);
+        final POJOGetAllCategoryDetails obj = pojoGetAllCategoryDetails.get(position);
         holder.tvCategoryName.setText(obj.getCategoryName());
 
         Glide.with(activity)
-                .load("http://192.168.2.74:80/UserAPI/images/"+obj.getCategoryImage())
+                .load("http://192.168.252.74:80/UserAPI/images/"+obj.getCategoryImage())
                 .diskCacheStrategy(DiskCacheStrategy.NONE) // Disable disk caching
                 .skipMemoryCache(true)// Disable memory caching
                 .error(R.drawable.icon_profile_photo)

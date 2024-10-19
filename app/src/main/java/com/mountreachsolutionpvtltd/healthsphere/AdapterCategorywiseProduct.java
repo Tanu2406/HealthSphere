@@ -78,7 +78,7 @@ public class AdapterCategorywiseProduct extends BaseAdapter {
         holder.tvProductDescription.setText(obj.getProductdescription());
 
         Glide.with(activity)
-                .load("http://192.168.252.74:80/UserAPI/images/"+obj.getProductimage())
+                .load("http://192.168.2.74:80/UserAPI/images/"+obj.getProductimage())
                 .diskCacheStrategy(DiskCacheStrategy.NONE) // Disable disk caching
                 .skipMemoryCache(true)// Disable memory caching
                 .error(R.drawable.icon_profile_photo)

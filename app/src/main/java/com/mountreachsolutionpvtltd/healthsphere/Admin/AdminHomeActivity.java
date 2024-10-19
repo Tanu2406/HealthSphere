@@ -1,9 +1,12 @@
 package com.mountreachsolutionpvtltd.healthsphere.Admin;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,6 +36,8 @@ public class AdminHomeActivity extends AppCompatActivity {
     RecyclerView rvGetAllCategory;
     List<POJOGetAllCategoryDetails> pojoGetAllCategoryDetails;
     AdapterGetAllCategoryDetailsRV adapterGetAllCategoryDetailsRV;
+
+    CardView cvAllCustomerLocationInMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,16 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         rvGetAllCategory = findViewById(R.id.rvCategoryFragmentShowMultipleCategory);
         rvGetAllCategory.setLayoutManager(new GridLayoutManager(AdminHomeActivity.this,2,GridLayoutManager.HORIZONTAL,false));
+
+        cvAllCustomerLocationInMap = findViewById(R.id.cvAdminHomeCustomerLocation);
+
+        cvAllCustomerLocationInMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomeActivity.this, ViewAllCustomerLocationMapActivity.class);
+                startActivity(intent);
+            }
+        });
 
         pojoGetAllCategoryDetails = new ArrayList<>();
         adapterGetAllCategoryDetailsRV = new AdapterGetAllCategoryDetailsRV(pojoGetAllCategoryDetails,this);

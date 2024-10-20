@@ -1,13 +1,13 @@
 package com.mountreachsolutionpvtltd.healthsphere;
 
-public class POGOGetAllCategoryDetails {
+public class POJOGetAllCategoryDetails {
     //pojo = plain old java obj
     //reusebility
     //multiple data get and set
 
     String id,categoryImage,categoryName;
 
-    public POGOGetAllCategoryDetails(String id, String categoryImage, String categoryName) {
+    public POJOGetAllCategoryDetails(String id, String categoryImage, String categoryName) {
         this.id = id;
         this.categoryImage = categoryImage;
         this.categoryName = categoryName;

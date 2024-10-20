@@ -33,7 +33,7 @@ import cz.msebera.android.httpclient.Header;
        ListView lvShowAllCategory;
        TextView tvNoCategoryAvailable;
 
-       List<POGOGetAllCategoryDetails> pogoGetAllCategoryDetails;//POGOGetAllCategoryDetails resultant class of list
+       List<POJOGetAllCategoryDetails> pojoGetAllCategoryDetails;//POGOGetAllCategoryDetails resultant class of list
         AdapterGetAllCategoryDetails adapterGetAllCategoryDetails;
 
     @Override
@@ -42,7 +42,7 @@ import cz.msebera.android.httpclient.Header;
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_category, container, false);
 
-        pogoGetAllCategoryDetails = new ArrayList<>();
+        pojoGetAllCategoryDetails = new ArrayList<>();
         searchCategory = view.findViewById(R.id.svCategoryFragmentSearchCategory);
         lvShowAllCategory = view.findViewById(R.id.lvCategoryFragmentShowMultipleCategory);
         tvNoCategoryAvailable = view.findViewById(R.id.tvCategoryFragmentNoCategoryAvailable);
@@ -68,10 +68,10 @@ import cz.msebera.android.httpclient.Header;
     }
 
         private void searchCategory(String query) {
-        List<POGOGetAllCategoryDetails> tempcategory = new ArrayList<>();
+        List<POJOGetAllCategoryDetails> tempcategory = new ArrayList<>();
         tempcategory.clear();
 
-        for (POGOGetAllCategoryDetails obj:pogoGetAllCategoryDetails)
+        for (POJOGetAllCategoryDetails obj:pojoGetAllCategoryDetails)
         {
             if (obj.getCategoryName().toUpperCase().contains(query.toUpperCase())){
 
@@ -110,10 +110,10 @@ import cz.msebera.android.httpclient.Header;
                             String strCategoryImage = jsonObject.getString("categoryimage");
                             String strCategoryName = jsonObject.getString("categoryname");
 
-                            pogoGetAllCategoryDetails.add(new POGOGetAllCategoryDetails(strId,strCategoryImage,strCategoryName));
+                            pojoGetAllCategoryDetails.add(new POJOGetAllCategoryDetails(strId,strCategoryImage,strCategoryName));
 
                         }
-                        adapterGetAllCategoryDetails = new AdapterGetAllCategoryDetails(pogoGetAllCategoryDetails,getActivity());
+                        adapterGetAllCategoryDetails = new AdapterGetAllCategoryDetails(pojoGetAllCategoryDetails,getActivity());
 
                         lvShowAllCategory.setAdapter(adapterGetAllCategoryDetails);
 

@@ -11,6 +11,13 @@ public class Urls {
     public static String UpdateProfileWebService = webServiseAddress + "updateProfile.php";
 
 
+
+
+    //Admin side API
+
+    public static String getAllCustomerLocationWebService = webServiseAddress + "getAllCustomerLocation.php";
+
+
     //ctrl+shift+f => find
     //ctrl+shift+r => replace
 }

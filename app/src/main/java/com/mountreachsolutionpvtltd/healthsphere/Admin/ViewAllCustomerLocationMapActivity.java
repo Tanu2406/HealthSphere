@@ -101,7 +101,7 @@ public class ViewAllCustomerLocationMapActivity extends FragmentActivity impleme
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(ViewAllCustomerLocationMapActivity.this, ""+e.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewAllCustomerLocationMapActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

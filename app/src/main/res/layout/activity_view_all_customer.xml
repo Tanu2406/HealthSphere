@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Admin.ViewAllCustomerActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/svViewAllCustomerSearchCustomer"
+        app:queryHint="Search By Customer Name,Username or address"
+        app:iconifiedByDefault="false"
+        android:layout_margin="16sp"
+        android:padding="8sp"
+        android:background="@drawable/et_bg_shape"
+        />
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvViewAllCustomerShowAllCustomer"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvViewAllCustomerNoCustomerAvailable"
+        android:text="No Customer Available"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:fontFamily="@font/cantata_one"
+        android:visibility="gone"/>
+
+
+</LinearLayout>

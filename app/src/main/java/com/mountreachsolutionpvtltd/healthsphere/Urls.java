@@ -16,6 +16,7 @@ public class Urls {
     //Admin side API
 
     public static String getAllCustomerLocationWebService = webServiseAddress + "getAllCustomerLocation.php";
+    public static String getAllCustomerDetailsWebService = webServiseAddress + "getAllCustomerDetails.php";
 
 
     //ctrl+shift+f => find

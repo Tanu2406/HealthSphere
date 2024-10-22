@@ -20,7 +20,9 @@
         android:theme="@style/Theme.HealthSphere"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Admin.ViewAllCustomerActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

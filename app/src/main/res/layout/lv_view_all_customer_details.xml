@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:id="@+id/ivViewAllCustomerProfilePhoto"
+            android:src="@drawable/icon_profile_photo"
+            android:layout_gravity="center_horizontal"/>
+
+        <!--    <ImageView-->
+        <!--        android:layout_width="50dp"-->
+        <!--        android:layout_height="50dp"-->
+        <!--        android:id="@+id/ivUpdateProfilePhoto"-->
+        <!--        android:src="@drawable/icon_edit"-->
+        <!--        android:layout_gravity="end"/>-->
+
+
+
+        <TextView
+            android:id="@+id/tvViewAllCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:fontFamily="@font/adamina"
+            android:text="Name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingLeft="16sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/tv_bg_shape"
+            />
+
+        <TextView
+            android:id="@+id/tvViewAllCustomerMobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:fontFamily="@font/adamina"
+            android:text="Mobile Number"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingLeft="16sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/tv_bg_shape"
+
+            />
+        <TextView
+            android:id="@+id/tvViewAllCustomerEmailId"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:fontFamily="@font/adamina"
+            android:text="Email Id"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingLeft="16sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/tv_bg_shape"
+
+            />
+        <TextView
+            android:id="@+id/tvViewAllCustomerAddress"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:fontFamily="@font/adamina"
+            android:text="Address"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingLeft="16sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/tv_bg_shape"
+
+            />
+
+        <TextView
+            android:id="@+id/tvViewAllCustomerUsername"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:fontFamily="@font/adamina"
+            android:text="Username"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingLeft="16sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/tv_bg_shape"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/acbtnViewAllCustomerDeleteUser"
+            android:background="@drawable/btn_shape"
+            android:text="Delete User"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/adamina"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

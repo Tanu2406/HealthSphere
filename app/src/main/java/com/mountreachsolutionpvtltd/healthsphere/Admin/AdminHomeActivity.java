@@ -39,7 +39,7 @@ public class AdminHomeActivity extends AppCompatActivity {
     List<POJOGetAllCategoryDetails> pojoGetAllCategoryDetails;
     AdapterGetAllCategoryDetailsRV adapterGetAllCategoryDetailsRV;
 
-    CardView cvAllCustomerLocationInMap;
+    CardView cvAllCustomerLocationInMap,cvAllCustomerDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +49,17 @@ public class AdminHomeActivity extends AppCompatActivity {
         rvGetAllCategory = findViewById(R.id.rvCategoryFragmentShowMultipleCategory);
         rvGetAllCategory.setLayoutManager(new GridLayoutManager(AdminHomeActivity.this,2,GridLayoutManager.HORIZONTAL,false));
         cvAllCustomerLocationInMap = findViewById(R.id.cvAdminHomeCustomerLocation);
+        cvAllCustomerDetails = findViewById(R.id.cvAdminHomeCustomerDetails);
         cvAllCustomerLocationInMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHomeActivity.this, ViewAllCustomerLocationMapActivity.class);
+                startActivity(intent);
+            }
+        });cvAllCustomerDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomeActivity.this, ViewAllCustomerActivity.class);
                 startActivity(intent);
             }
         });

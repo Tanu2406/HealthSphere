@@ -17,6 +17,7 @@ public class Urls {
 
     public static String getAllCustomerLocationWebService = webServiseAddress + "getAllCustomerLocation.php";
     public static String getAllCustomerDetailsWebService = webServiseAddress + "getAllCustomerDetails.php";
+    public static String deleteUserWebService = webServiseAddress + "deleteUser.php";
 
 
     //ctrl+shift+f => find

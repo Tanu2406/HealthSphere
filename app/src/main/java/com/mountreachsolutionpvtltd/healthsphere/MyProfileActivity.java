@@ -140,7 +140,7 @@ public class MyProfileActivity extends  AppCompatActivity {
                                 .diskCacheStrategy(DiskCacheStrategy.NONE) // Disable disk caching
                                 .skipMemoryCache(true)// Disable memory caching
                                 .placeholder(R.drawable.icon_home_account_)
-                                .error(R.drawable.icon_profile_photo)
+                                .error(R.drawable.noimgavailable)
                                 .into(ivProfilePhoto);
 
                         btnUpdateProfile.setOnClickListener(new View.OnClickListener() {
